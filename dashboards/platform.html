@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenSat v2.1 Platform Validation</title>
+<style>
+body{font-family:system-ui,Segoe UI,sans-serif;margin:0;background:#0b1020;color:#eef2ff}
+main{max-width:1150px;margin:auto;padding:28px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+.card{background:#151d36;border:1px solid #2d3a63;border-radius:14px;padding:18px}h1{margin-top:0}.value{font-size:2rem;font-weight:700}
+table{width:100%;border-collapse:collapse;margin-top:20px;background:#151d36}th,td{padding:12px;border-bottom:1px solid #2d3a63;text-align:left}.pass{color:#5ee7a8;font-weight:700}.fail{color:#ff7b8a;font-weight:700}
+</style></head><body><main>
+<h1>OpenSat Mission Lab v2.1 Platform Validation</h1>
+<p>S3-compatible storage, GDAL COG validation, leased jobs, signed webhooks, role-based access, and verified recovery.</p>
+<div class="grid">
+<div class="card"><div>Scenes</div><div class="value">6</div></div>
+<div class="card"><div>COG objects</div><div class="value">1</div></div>
+<div class="card"><div>Webhook deliveries</div><div class="value">1</div></div>
+<div class="card"><div>Backups restored</div><div class="value">1</div></div>
+<div class="card"><div>Checks</div><div class="value">18/18</div></div>
+</div>
+<table><thead><tr><th>Check</th><th>Status</th><th>Evidence</th></tr></thead><tbody><tr><td>Liveness endpoint</td><td class='pass'>PASS</td><td>HTTP 200</td></tr><tr><td>Anonymous protected access</td><td class='pass'>PASS</td><td>HTTP 401</td></tr><tr><td>Viewer scene access</td><td class='pass'>PASS</td><td>count=6</td></tr><tr><td>Viewer write denial</td><td class='pass'>PASS</td><td>HTTP 403</td></tr><tr><td>Role identity</td><td class='pass'>PASS</td><td>role=operator</td></tr><tr><td>Admin webhook creation</td><td class='pass'>PASS</td><td>HTTP 201</td></tr><tr><td>Distributed job lease</td><td class='pass'>PASS</td><td>owner=lease-probe</td></tr><tr><td>Lease renewal</td><td class='pass'>PASS</td><td>2026-07-24T14:36:35+00:00</td></tr><tr><td>Leased worker execution</td><td class='pass'>PASS</td><td>status=succeeded</td></tr><tr><td>Signed webhook delivery</td><td class='pass'>PASS</td><td>job.succeeded</td></tr><tr><td>COG job submission</td><td class='pass'>PASS</td><td>HTTP 202</td></tr><tr><td>GDAL COG validation</td><td class='pass'>PASS</td><td>COG</td></tr><tr><td>Object-store publication</td><td class='pass'>PASS</td><td>objects=1</td></tr><tr><td>Object retrieval URL</td><td class='pass'>PASS</td><td>file:///mnt/data/opensat-mission-lab-v2.4-work/opensat-mission-lab/outputs/v2.4-validation/object-store/cogs/demo-scene.tif</td></tr><tr><td>Verified SQLite backup</td><td class='pass'>PASS</td><td>c6797713f02697d0a14b2215833bbd52a4a6234b8adaded3a78de81869de7e05</td></tr><tr><td>Verified recovery</td><td class='pass'>PASS</td><td>ok</td></tr><tr><td>Public STAC search</td><td class='pass'>PASS</td><td>returned=3</td></tr><tr><td>Prometheus v2.1 metrics</td><td class='pass'>PASS</td><td>webhook gauge exported</td></tr></tbody></table>
+<p>The bundled validation uses the local object-store backend. Docker Compose includes MinIO for S3-compatible deployment.</p>
+</main></body></html>
