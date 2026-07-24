@@ -4,7 +4,7 @@
 
 > **Current release:** v3.1  
 > **Website:** GitHub Pages-ready static site in [`site/`](https://samuelson777.github.io/OpenSat-Mission-Lab/)  
-> **Primary workspace:** [`OpenSat-Mission-Lab.code-workspace`](OpenSat-Mission-Lab.code-workspace)
+> **Primary workspace:** [`OpenSat-Mission-Lab.code-workspace`](https://samuelson777.github.io/OpenSat-Mission-Lab-Versions/)
 
 ---
 
