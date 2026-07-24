@@ -746,7 +746,7 @@ Suitable choices include:
 After selecting a license, replace this section with:
 
 ```text
-Licensed under the [LICENSE NAME](LICENSE).
+Licensed under the [MIT](https://github.com/Samuelson777/OpenSat-Mission-Lab/blob/main/LICENSE).
 ```
 
 ---
