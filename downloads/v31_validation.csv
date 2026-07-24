@@ -1,0 +1,29 @@
+check_id,status,evidence
+V31-001,PASS,all 22 inherited v3.0 controls remain satisfied
+V31-002,PASS,10 detached approval signatures recorded
+V31-003,PASS,all Ed25519 approval signatures verify
+V31-004,PASS,every approval gate has a valid dual-signature bundle
+V31-005,PASS,requesters cannot approve their own requests
+V31-006,PASS,"self-approval, duplicate-role, and tamper attempts blocked"
+V31-007,PASS,four distinct public signing keys registered
+V31-008,PASS,two command grants issued for approved workflows
+V31-009,PASS,all command grants are time bounded to five minutes or less
+V31-010,PASS,two approved command attempts allowed
+V31-011,PASS,five unsafe command attempts blocked
+V31-012,PASS,rejected workflow cannot obtain command authorization
+V31-013,PASS,expired authorization rejected
+V31-014,PASS,command substitution rejected by digest binding
+V31-015,PASS,conjunction blackout blocks command transmission
+V31-016,PASS,unsafe power state blocks command transmission
+V31-017,PASS,each grant references two distinct approval records
+V31-018,PASS,three workflow snapshots migrated to v3.1
+V31-019,PASS,workflow idempotency keys preserved through migration
+V31-020,PASS,terminal and completed-node state preserved through migration
+V31-021,PASS,authorize node inserted only where command work remains
+V31-022,PASS,v3.1 DAG requires authorization before command transmission
+V31-023,PASS,256 finite command-gate states checked exhaustively
+V31-024,PASS,all eight safety invariants have zero violations
+V31-025,PASS,only the fully safe command-gate state is allowed
+V31-026,PASS,v3.0 event chain remains intact after assurance analysis
+V31-027,PASS,private signing material is absent from exported evidence
+V31-028,PASS,replayable terminal-state safety is preserved

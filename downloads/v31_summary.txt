@@ -1,0 +1,17 @@
+OpenSat Mission Lab v3.1 safety-assured orchestration
+version: 3.1.0
+status: PASS
+checks_passed: 28
+checks_total: 28
+signed_approvals: 10
+verified_approval_bundles: 5
+blocked_approval_attempts: 3
+authorization_grants: 2
+allowed_command_attempts: 2
+blocked_command_attempts: 5
+migrated_snapshots: 3
+safety_states_checked: 256
+safety_invariants: 8
+invariant_violations: 0
+final_state: HEALTHY
+dashboard_path: outputs/v3.1/v31_safety_assurance_dashboard.html

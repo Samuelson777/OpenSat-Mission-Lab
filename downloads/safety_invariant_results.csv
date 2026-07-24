@@ -1,0 +1,9 @@
+invariant_id,description,states_checked,violations,status
+INV-001,No command without two approval signatures,256,0,PASS
+INV-002,No command when approver actors are not distinct,256,0,PASS
+INV-003,No command when approver roles are not distinct,256,0,PASS
+INV-004,No command outside an active authorization window,256,0,PASS
+INV-005,No command when the digest does not match,256,0,PASS
+INV-006,No command during a safety blackout,256,0,PASS
+INV-007,No command in an unsafe spacecraft power state,256,0,PASS
+INV-008,No transmission without an explicit command request,256,0,PASS
