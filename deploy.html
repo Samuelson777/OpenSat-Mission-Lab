@@ -1,0 +1,44 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050713"><meta name="description" content="Deploy the OpenSat Mission Lab static portfolio website using GitHub Pages and GitHub Actions."><meta property="og:title" content="Deploy — OpenSat Mission Lab"><meta property="og:description" content="Deploy the OpenSat Mission Lab static portfolio website using GitHub Pages and GitHub Actions."><meta property="og:type" content="website"><meta property="og:image" content="assets/images/constellation-ground-tracks.png"><title>Deploy — OpenSat Mission Lab</title><link rel="stylesheet" href="assets/css/site.css"><link rel="icon" href="favicon.svg" type="image/svg+xml"></head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span>OpenSat <span>Mission Lab</span></span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html">Home</a><a href="capabilities.html">Capabilities</a><a href="evidence.html">Evidence</a><a href="deploy.html">Deploy</a><a href="dashboards/safety-assurance.html">Dashboard ↗</a>
+    </nav>
+  </div>
+</header><main id="main">
+<section class="page-hero"><div class="container"><span class="eyebrow">GitHub Pages deployment</span><h1>Publish the portfolio site from your repository.</h1><p>The project includes a custom GitHub Actions workflow that publishes the static <code>site/</code> directory. No Node.js, Jekyll or server process is required.</p></div></section>
+<section><div class="container"><div class="notice">Before publishing, replace any repository placeholder links automatically detected during local preview by pushing the project to your own GitHub repository. On GitHub Pages, the site derives the owner and repository name from the URL.</div><div class="deploy-steps" style="margin-top:1.5rem"><article class="deploy-step"><h3>Create or open the GitHub repository</h3><p>Upload the complete project, including <code>site/</code> and <code>.github/workflows/pages.yml</code>, to the default branch.</p></article><article class="deploy-step"><h3>Enable GitHub Actions as the Pages source</h3><p>In the repository, open <strong>Settings → Pages</strong>. Under <strong>Build and deployment</strong>, select <strong>GitHub Actions</strong>.</p></article><article class="deploy-step"><h3>Push a change to the default branch</h3><p>The Pages workflow validates the entry page, uploads the static site artifact and deploys it to the <code>github-pages</code> environment.</p></article><article class="deploy-step"><h3>Open the deployed URL</h3><p>The workflow summary provides the site URL. Project sites normally use <code>https://OWNER.github.io/REPOSITORY/</code>.</p></article></div></div></section>
+<section><div class="container"><div class="section-head"><div><span class="kicker">Included workflow</span><h2>Automatic deployment</h2></div><p>The workflow follows the current GitHub Pages artifact deployment model.</p></div><div class="code-panel"><div class="code-head"><span>.github/workflows/pages.yml</span><button class="copy-btn" data-copy="workflow-code">Copy</button></div><pre id="workflow-code">name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4</pre></div></div></section>
+<section><div class="container"><div class="section-head"><div><span class="kicker">Local preview</span><h2>Review before publishing</h2></div><p>Serve the site from the repository root, then open the local URL.</p></div><div class="code-panel"><div class="code-head"><span>PowerShell or terminal</span><button class="copy-btn" data-copy="preview-code">Copy</button></div><pre id="preview-code">python -m http.server 8000 --directory site
+# Open http://127.0.0.1:8000</pre></div></div></section>
+</main>
+<footer class="footer"><div class="container footer-grid"><div><strong>OpenSat Mission Lab</strong><br><span>Created by SAMUELSON G · MIT License</span></div><div>Static GitHub Pages edition · <span id="year"></span></div></div></footer>
+<script src="assets/js/site.js"></script></body></html>
