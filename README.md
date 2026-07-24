@@ -3,7 +3,7 @@
 **An open-source, home-PC-compatible digital mission engineering laboratory for spacecraft analysis, Earth observation, secure mission operations, distributed infrastructure, and safety-governed workflow orchestration.**
 
 > **Current release:** v3.1  
-> **Website:** GitHub Pages-ready static site in [`site/`](site/)  
+> **Website:** GitHub Pages-ready static site in [`site/`](https://samuelson777.github.io/OpenSat-Mission-Lab/)  
 > **Primary workspace:** [`OpenSat-Mission-Lab.code-workspace`](OpenSat-Mission-Lab.code-workspace)
 
 ---
